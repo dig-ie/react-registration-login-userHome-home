@@ -2,8 +2,18 @@ import {MainWrapper, TextContainer, Text1, LoginBoxContainer} from './styles';
 import { Input } from '../../components/Input/index';
 import { Button } from '../../components/Button/index';
 import { Header } from '../../components/Header/index'
-import { useForm } from "react-hook-form"
 import { LoginForm } from '../../components/LoginForm';
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
+
+
+const schema = yup
+  .object({
+    firstName: yup.string().required(),
+    age: yup.number().positive().integer().required(),
+  })
+  .required()
 
 export const Login = ({LoginBoxTitle_Text, Text_Content, Button_Text, ForgottPass_text, CrateAccount_Text, LoginBoxSubTitle_Text }) => {
     LoginBoxTitle_Text = 'Faça seu cadastro'
@@ -13,8 +23,11 @@ export const Login = ({LoginBoxTitle_Text, Text_Content, Button_Text, ForgottPas
     CrateAccount_Text = 'Criar conta'
     LoginBoxSubTitle_Text = 'Faça seu login e make the change._'
 
-    const { control, handleSubmit, formState: { erros, isValid }  } = useForm();
+    const { control, handleSubmit, formState: { erros, isValid }  } = useForm({
+        resolver: yupResolver(schema)
+    });
     const onSubmit = (data) => console.log(data);
+
     
     return(
         <>
