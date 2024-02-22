@@ -1,15 +1,11 @@
 import { styled } from "styled-components";
 
-export const ButtonContainer = styled.div`
-width:100%;
-height:100%;
-margin-bottom: 1rem;
-`
+// export const ButtonContainer = styled.div`
+// width:100%;
+// height:100%;
+// margin-bottom: 1rem;
+// `
 export const ButtonOutlied = styled.div`
-
-
-/* width: 110px;
-height: 15px; */
 width:100%;
 height:auto;
 
@@ -23,7 +19,6 @@ justify-content: center;
 align-items: center;
 `
 export const ButtonIternStyleDiv = styled.button`
-
 cursor: pointer;
 
 min-width: 100px;

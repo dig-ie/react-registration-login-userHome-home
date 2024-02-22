@@ -7,8 +7,8 @@ import {UserHome} from './pages/UserHome/index.jsx'
 function App() {
   return (
     // <Home/>
-    // <Login/>
-    <Register/>
+    <Login/>
+    // <Register/>
     // <UserHome/>
   );
 }

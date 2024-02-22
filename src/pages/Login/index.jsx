@@ -1,6 +1,9 @@
 import {MainWrapper, TextContainer, Text1, LoginBoxContainer} from './styles';
-import { LoginBox } from '../../components/LoginBox/index';
-import {Header} from '../../components/Header/index'
+import { Input } from '../../components/Input/index';
+import { Button } from '../../components/Button/index';
+import { Header } from '../../components/Header/index'
+import { useForm } from "react-hook-form"
+import { LoginForm } from '../../components/LoginForm';
 
 export const Login = ({LoginBoxTitle_Text, Text_Content, Button_Text, ForgottPass_text, CrateAccount_Text, LoginBoxSubTitle_Text }) => {
     LoginBoxTitle_Text = 'Faça seu cadastro'
@@ -9,6 +12,10 @@ export const Login = ({LoginBoxTitle_Text, Text_Content, Button_Text, ForgottPas
     ForgottPass_text = 'Esqueci minha senha'
     CrateAccount_Text = 'Criar conta'
     LoginBoxSubTitle_Text = 'Faça seu login e make the change._'
+
+    const { control, handleSubmit, formState: { erros, isValid }  } = useForm();
+    const onSubmit = (data) => console.log(data);
+    
     return(
         <>
         <Header/>
@@ -17,8 +24,11 @@ export const Login = ({LoginBoxTitle_Text, Text_Content, Button_Text, ForgottPas
                 <Text1>{Text_Content}</Text1>
             </TextContainer>
             <LoginBoxContainer>
-            <LoginBox LoginBoxTitleText={LoginBoxTitle_Text} LoginBoxSubTitleText={LoginBoxSubTitle_Text}
-             OutlinedButtonText={Button_Text} ForgottPassText={ForgottPass_text} CrateAccountTextt={CrateAccount_Text}/>
+                <LoginForm OnSubmit={handleSubmit(onSubmit)} Control = { control }>
+                    
+                </LoginForm>
+            {/* <LoginBox LoginBoxTitleText={LoginBoxTitle_Text} LoginBoxSubTitleText={LoginBoxSubTitle_Text}
+             OutlinedButtonText={Button_Text} ForgottPassText={ForgottPass_text} CrateAccountTextt={CrateAccount_Text}/> */}
             </LoginBoxContainer>
         </MainWrapper>
         </>

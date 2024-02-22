@@ -27,7 +27,7 @@ color: white;
 
 margin-bottom: 0.75rem; 
 `
-export const InputContainer = styled.div`
+export const Form = styled.form`
 
 display: flex;
 flex-direction: column;

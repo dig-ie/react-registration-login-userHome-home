@@ -1,11 +1,11 @@
 import {LoginHeaderContainer, HeaderLogoContainer, ButtonsContainer} from './styles'
 import {LogonButton} from '../LogonButton/index'
-import {DioLogo} from '../../icons/DioLogo.jsx'
+import DioLogo from '../../icons/DioLogo.png'
 export const Header = () => {
 return(
     <LoginHeaderContainer>
         <HeaderLogoContainer>
-            <DioLogo/>
+            <img src={DioLogo}/>
         </HeaderLogoContainer>
         <ButtonsContainer>
             <LogonButton LogonButtonText='Entrar'></LogonButton>
