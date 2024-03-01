@@ -1,9 +1,12 @@
+import React, { useState } from "react";
 import { Button } from "../Button/index";
 import { Input } from "../Input/index";
 import { Form, ErrorText } from "./styles";
 import { useForm } from "react-hook-form";
 import { adicionarNovoUsuario, usuarios } from "../../Mock/UserMock";
-import React, { useState } from "react";
+import _isEqual from "lodash/isEqual";
+import omit from "lodash/omit";
+import { useNavigate } from "react-router-dom";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -17,6 +20,7 @@ const schema = yup
   .required();
 
 export const LoginForm = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({});
   const {
     handleSubmit,
@@ -34,14 +38,38 @@ export const LoginForm = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+
     setUser({
-      id: `${usuarios.length + 1}`,
+      id: `${usuarios.length}`,
       name: `${data.name}`,
       email: `${data.email}`,
       password: `${data.password}`,
     });
-    adicionarNovoUsuario(user);
-    console.log("userrr: " + user.name + user.id);
+
+    console.log("userrr: " + user.email + user.password);
+
+    usuarios.map((usuario) => {
+      const userSemId = omit(user, "id");
+      const usuarioSemId = omit(usuario, "id");
+
+      _isEqual(userSemId, usuarioSemId)
+        ?
+        // ? console.log("true")
+        navigate("/UserHome")
+        : console.log(
+            usuario.name +
+              " " +
+              usuario.email +
+              " " +
+              usuario.password +
+              "USERRRR" +
+              user.name +
+              " " +
+              user.email +
+              " " +
+              user.password
+          );
+    });
   };
 
   return (

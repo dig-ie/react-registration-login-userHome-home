@@ -1,7 +1,7 @@
 import {Button} from './styles'
 
-export const LogonButton = ({LogonButtonText}) => {
+export const LogonButton = ({OnClick, LogonButtonText}) => {
     return(
-        <Button>{LogonButtonText}</Button>
+        <Button onClick={OnClick}>{LogonButtonText}</Button>
     )
 }
