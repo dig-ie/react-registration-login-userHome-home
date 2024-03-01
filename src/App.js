@@ -1,15 +1,20 @@
 
-import {Home} from './pages/home/index.jsx'
-import {Login} from './pages/Login/index.jsx'
-import { Register } from './pages/Register/index.jsx';
-import {UserHome} from './pages/UserHome/index.jsx'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/home'
+import { Login } from './pages/Login'
 
 function App() {
   return (
     // <Home/>
-    <Login/>
+    // <Login/>
     // <Register/>
     // <UserHome/>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/Login" element={<Login/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

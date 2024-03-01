@@ -2,10 +2,12 @@ import { MainSectionContainer, HomeImgStyled, HomeImgContainer, InfosSection, In
 import HomeImg from '../../imgs/HomeImg.png'
 import { OutlinedButton } from '../../components/OutlinedButton'
 import { Header } from '../../components/Header'
+import { useNavigate } from "react-router-dom";
 export const Home = () => {
+    const navigate = useNavigate();
     return (
     <MainWrapper>
-        <Header button1Text="Entrar" button2Text="Cadastrar"/>
+        <Header OnClick1={()=>{console.log('aaaaa')}}button1Text="aa" button2Text="Cadastrar"/>
     <MainSectionContainer>
         <InfosSection>
             <InfosTextContainer>

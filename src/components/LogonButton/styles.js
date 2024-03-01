@@ -2,6 +2,7 @@ import {styled} from 'styled-components';
 
 export const Button = styled.button`
 
+cursor: pointer;
 width: 120px;
 height: 22px;
 

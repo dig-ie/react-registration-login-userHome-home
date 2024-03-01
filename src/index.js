@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { createGlobalStyle, styled } from "styled-components";
+import { createGlobalStyle} from "styled-components";
+import { BrowserRouter } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
   
@@ -53,7 +54,7 @@ table {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+     <App />
     <GlobalStyle/>
   </React.StrictMode>
 );
