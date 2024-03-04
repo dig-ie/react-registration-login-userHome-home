@@ -1,8 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import { createGlobalStyle} from "styled-components";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { createGlobalStyle } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
+import { LoggedContext } from "./contexts/LoginContext";
 
 const GlobalStyle = createGlobalStyle`
   
@@ -51,12 +52,13 @@ table {
 }
 `;
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-     <App />
-    <GlobalStyle/>
+    <LoggedContext.Provider value={false}>
+      <App />
+    </LoggedContext.Provider>
+
+    <GlobalStyle />
   </React.StrictMode>
 );
-
-

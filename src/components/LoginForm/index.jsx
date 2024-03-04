@@ -19,9 +19,10 @@ const schema = yup
   })
   .required();
 
-export const LoginForm = () => {
+export const LoginForm = ({ navigateTo }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
+  const [loginSuccess, setLoginSuccess] = useState(false);
   const {
     handleSubmit,
     control,
@@ -37,40 +38,37 @@ export const LoginForm = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log("data: ", data);
 
-    setUser({
-      id: `${usuarios.length}`,
+    const newUser = {
+      id: `${usuarios.length}`, // Corrigido
       name: `${data.name}`,
       email: `${data.email}`,
       password: `${data.password}`,
-    });
+    };
 
-    console.log("userrr: " + user.email + user.password);
+    setUser(newUser);
 
-    usuarios.map((usuario) => {
-      const userSemId = omit(user, "id");
-      const usuarioSemId = omit(usuario, "id");
+    // Garantindo que a navegação ocorra após o estado ser atualizado
+    // usando a função de retorno de chamada de setUser
+    setUser((prevUser) => {
+      const isValidUser = usuarios.some((usuario) =>
+        _isEqual(omit(prevUser, "id"), omit(usuario, "id"))
+      );
 
-      _isEqual(userSemId, usuarioSemId)
-        ?
-        // ? console.log("true")
-        navigate("/UserHome")
-        : console.log(
-            usuario.name +
-              " " +
-              usuario.email +
-              " " +
-              usuario.password +
-              "USERRRR" +
-              user.name +
-              " " +
-              user.email +
-              " " +
-              user.password
-          );
+      if (isValidUser) {
+        console.log("VALIDAÇÃO SUCESSO -------------------");
+        navigate(navigateTo);
+      }
+
+      return newUser; // Retornando o novo usuário atualizado
     });
   };
+
+  // Redireciona para a página de usuário se o login for bem-sucedido
+  // if (loginSuccess) {
+  //   navigate("/UserHome");
+  // }
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>

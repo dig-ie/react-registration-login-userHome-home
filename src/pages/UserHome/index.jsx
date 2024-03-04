@@ -5,6 +5,6 @@ export const UserHome = () => {
     return(
         // <FeedBox/>
         <RankingBox/>
-
+        
     )
 }
