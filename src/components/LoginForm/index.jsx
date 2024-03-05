@@ -59,6 +59,7 @@ export const LoginForm = ({ navigateTo }) => {
       if (isValidUser) {
         console.log("VALIDAÇÃO SUCESSO -------------------");
         navigate(navigateTo);
+        
       }
 
       return newUser; // Retornando o novo usuário atualizado
