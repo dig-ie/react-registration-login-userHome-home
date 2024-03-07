@@ -1,10 +1,10 @@
-import { FeedBoxContainer } from "./styles";
+import { FeedBoxContainer, MainWrapper, RankingContainer } from "./styles";
 import { PostMock } from "../../Mock/PostMock";
 import { FeedBox } from "../../components/FeedBox";
-import { RankingBox } from "../../components/RankingBox";
+import { RankingUnit } from "../../components/RankingUnit";
 import { Header } from "../../components/Header";
-import { useContext } from "react";
-import { LoginContext } from "../../contexts/LoginContext";
+// import { useContext } from "react";
+// import { LoginContext } from "../../contexts/LoginContext";
 export const UserHome = () => {
   //   const { logged, toggleLogged } = useContext(LoginContext);
   //   toggleLogged();
@@ -15,10 +15,16 @@ export const UserHome = () => {
     // <LoginContext.Provider value={{userLogged: false, toggleLogged:()=>null}}>
     <>
       <Header LoggedHeaderType={true} />
-      <FeedBoxContainer>
-        <FeedBox Mock={PostMock}></FeedBox>
-      </FeedBoxContainer>
-        <RankingBox />
+      <MainWrapper>
+        <FeedBoxContainer>
+          <FeedBox Mock={PostMock}></FeedBox>
+        </FeedBoxContainer>
+        <RankingContainer>
+          <RankingUnit />
+          <RankingUnit />
+          <RankingUnit />
+        </RankingContainer>
+      </MainWrapper>
     </>
 
     // </LoginContext.Provider>

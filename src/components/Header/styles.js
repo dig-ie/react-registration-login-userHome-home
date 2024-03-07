@@ -4,13 +4,24 @@ export const LoginHeaderContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
-  gap: 1rem;
-  /* justify-content: space-between; */
+  /* gap: 1rem; */
+  justify-content: space-between;
   align-items: center;
 
   height: 60px;
-  width: 100vw;
+  width: 100%;
   background-color: black;
+`;
+
+export const LeftSideHeaderContainer = styled.div`
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+  background-color: red;
+  z-index: 90;
+  gap: 16px;
 `;
 
 export const HeaderLogoContainer = styled.div`

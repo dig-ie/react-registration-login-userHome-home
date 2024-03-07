@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const RankingBoxContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 38px;
   min-height: 65px;
   background-color: #3b4651;
   display: flex;
@@ -19,21 +19,11 @@ export const UserCotainer = styled.div`
   justify-content: space-around;
   /* gap: 8px; */
 `;
-export const UserImgContainer = styled.div`
-  background-color: green;
-  width: 40px;
-  height: 40px;
-  border-radius: 100px;
-`;
-export const UserImg = styled.img`
-  border: 4px solid green;
-  border-radius: 100px;
-  width: 100%;
-  height: 100%;
-`;
 export const UserSubContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 export const UserNameText = styled.h1`
   color: white;
