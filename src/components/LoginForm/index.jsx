@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { useContext } from "react";
+// import { useContext } from "react";
 import { Button } from "../Button/index";
 import { Input } from "../Input/index";
 import { Form, ErrorText } from "./styles";
 import { useForm } from "react-hook-form";
-import { adicionarNovoUsuario, usuarios } from "../../Mock/UserMock";
+import { usuarios } from "../../Mock/UserMock";
 import _isEqual from "lodash/isEqual";
 import omit from "lodash/omit";
 import { useNavigate } from "react-router-dom";
-import { LoginContext } from "../../contexts/LoginContext";
+// import { LoginContext } from "../../contexts/LoginContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -21,8 +21,8 @@ const schema = yup
   .required();
 
 export const LoginForm = ({ navigateTo }) => {
-  const { userLogged, toggleLogged } = useContext(LoginContext);
-  console.log("USER CONTEXT " + userLogged);
+  // const { userLogged, toggleLogged } = useContext(LoginContext);
+  // console.log("USER CONTEXT " + userLogged);
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [loginSuccess, setLoginSuccess] = useState(false);
@@ -62,10 +62,6 @@ export const LoginForm = ({ navigateTo }) => {
 
       if (isValidUser) {
         console.log("VALIDAÇÃO SUCESSO -------------------");
-        // console.log("LOGGED: " + logged);
-        
-        console.log("USER LOGGED loginform: " + userLogged)
-
         navigate(navigateTo);
       }
 

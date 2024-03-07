@@ -1,40 +1,53 @@
-import { 
-    FeedText, PostContainer, PostImgContainer, PostImg,
-    PostInfoContainer, UserInfoContainer, UserImg, UserNameAndPostedTimeContainer,
-    UserNameText, PostedTime, PostDetailsContainer, PostTitleText, PostDescription, 
-    PostHashTag} from './styles';
+import {
+  FeedText,
+  PostContainer,
+  PostImgContainer,
+  PostImg,
+  PostInfoContainer,
+  UserInfoContainer,
+  UserImg,
+  UserNameAndPostedTimeContainer,
+  UserNameText,
+  PostedTime,
+  PostDetailsContainer,
+  PostTitleText,
+  PostDescription,
+  PostHashTag,
+} from "./styles";
 
-import { PostMock } from '../../Mock/PostMock';
+import { PostMock } from "../../Mock/PostMock";
 
-export const FeedBox = () => {
-    return (
-        <>
-        <FeedText>Feed</FeedText>
-        {PostMock.map((post)=>{
-            return(<>
-        <PostContainer>
-            <PostImgContainer>
-                <PostImg src={post.imgLink}/>
-            </PostImgContainer>
-            <PostInfoContainer>
+export const FeedBox = ({ Mock }) => {
+  return (
+    <>
+      <FeedText>Feed</FeedText>
+      {Mock.map((post) => {
+        return (
+          <>
+            <PostContainer>
+              <PostImgContainer>
+                <PostImg src={post.imgLink} />
+              </PostImgContainer>
+              <PostInfoContainer>
                 <UserInfoContainer>
-                    <UserImg/>
-                    <UserNameAndPostedTimeContainer>
-                        <UserNameText>{post.userName}</UserNameText>
-                        <PostedTime>{post.postedTime}</PostedTime>
-                    </UserNameAndPostedTimeContainer>
-                </UserInfoContainer> 
+                  <UserImg />
+                  <UserNameAndPostedTimeContainer>
+                    <UserNameText>{post.userName}</UserNameText>
+                    <PostedTime>{post.postedTime}</PostedTime>
+                  </UserNameAndPostedTimeContainer>
+                </UserInfoContainer>
                 <PostDetailsContainer>
-                    <PostTitleText>{post.postTitle}</PostTitleText>
-                    <PostDescription>{post.postDescription}</PostDescription>
-                    <PostHashTag>{post.postHashTag}</PostHashTag>
+                  <PostTitleText>{post.postTitle}</PostTitleText>
+                  <PostDescription>{post.postDescription}</PostDescription>
+                  <PostHashTag>{post.postHashTag}</PostHashTag>
                 </PostDetailsContainer>
-            </PostInfoContainer>
-        </PostContainer>
-            </>)
-        })}
+              </PostInfoContainer>
+            </PostContainer>
+          </>
+        );
+      })}
 
-        {/* <FeedText>Feed</FeedText>
+      {/* <FeedText>Feed</FeedText>
         <PostContainer>
             <PostImgContainer>
                 <PostImg src='https://i.imgur.com/9WtBiQN.jpeg'/>
@@ -54,6 +67,6 @@ export const FeedBox = () => {
                 </PostDetailsContainer>
             </PostInfoContainer>
         </PostContainer> */}
-        </>
-    )
-}
+    </>
+  );
+};

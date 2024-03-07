@@ -7,6 +7,9 @@ import { LoginContext } from "./contexts/LoginContext";
 
 const GlobalStyle = createGlobalStyle`
   
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap')
+;
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -26,6 +29,7 @@ time, mark, audio, video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -55,9 +59,8 @@ table {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    
-      <App />
-    
+    <App />
+
     <GlobalStyle />
   </React.StrictMode>
 );

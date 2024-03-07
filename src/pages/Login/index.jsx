@@ -1,9 +1,7 @@
 import { MainWrapper, TextContainer, Text1, LoginBoxContainer } from "./styles";
 import { Header } from "../../components/Header/index";
 import { LoginForm } from "../../components/LoginForm";
-import {
-  LoginContext,
-} from "../../contexts/LoginContext";
+import { LoginContext } from "../../contexts/LoginContext";
 // import { useForm } from "react-hook-form"
 // import { yupResolver } from "@hookform/resolvers/yup"
 // import * as yup from "yup"
@@ -26,18 +24,20 @@ export const Login = ({
 }) => {
   return (
     <>
-    <LoginContext.Provider value={{userLogged: false, toggleLogged:()=>null}}>
-      <Header />
-      <MainWrapper>
-        <TextContainer>
-          <Text1>{Text_Content}</Text1>
-        </TextContainer>
-        <LoginBoxContainer>
-          <LoginForm navigateTo={"/UserHome"} />
-          {/* <LoginBox LoginBoxTitleText={LoginBoxTitle_Text} LoginBoxSubTitleText={LoginBoxSubTitle_Text}
+      <LoginContext.Provider
+        value={{ userLogged: false, toggleLogged: () => null }}
+      >
+        <Header LoggedHeaderType={false} />
+        <MainWrapper>
+          <TextContainer>
+            <Text1>{Text_Content}</Text1>
+          </TextContainer>
+          <LoginBoxContainer>
+            <LoginForm navigateTo={"/UserHome"} />
+            {/* <LoginBox LoginBoxTitleText={LoginBoxTitle_Text} LoginBoxSubTitleText={LoginBoxSubTitle_Text}
              OutlinedButtonText={Button_Text} ForgottPassText={ForgottPass_text} CrateAccountTextt={CrateAccount_Text}/> */}
-        </LoginBoxContainer>
-      </MainWrapper>
+          </LoginBoxContainer>
+        </MainWrapper>
       </LoginContext.Provider>
     </>
   );
