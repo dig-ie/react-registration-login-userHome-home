@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createGlobalStyle } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
-import { LoggedContext } from "./contexts/LoginContext";
+import { LoginContext } from "./contexts/LoginContext";
 
 const GlobalStyle = createGlobalStyle`
   
@@ -55,10 +55,9 @@ table {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <LoggedContext.Provider value={false}>
+    
       <App />
-    </LoggedContext.Provider>
-
+    
     <GlobalStyle />
   </React.StrictMode>
 );

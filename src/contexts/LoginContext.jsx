@@ -1,25 +1,21 @@
-import { createContext } from "react";
-import { useState } from "react";
+import { createContext, useState } from "react";
 
+export const LoginContext = createContext({
+  userLogged: "",
+  toggleLogged: () => {},
+});
 
-export const LoggedContext = createContext();
+export const LoginContextProvider = ({ children }) => {
+  const [userLogged, setUserLogged] = useState(false);
 
-// 2. Criar um componente Provider para envolver os componentes que precisam acessar o contexto
-export const LoggedContextProvider = ({ children }) => {
-  const [contextValue, setContextValue] = useState(false);
+  const toggleLogged = () => {
+    setUserLogged(!userLogged);
+    console.log("TOGGLELOGGED FUNCTION: " + userLogged);
+  };
 
-
-// Função para atualizar o valor do contexto
-    const updateContextValue = (newValue) => {
-        setContextValue(newValue);
-    };
-
-    return (
-        <LoggedContext.Provider value={{ contextValue, updateContextValue }}>
-          {children}
-        </LoggedContext.Provider>
-      );
-}
-
-
-
+  return (
+    <LoginContext.Provider value={{ userLogged, toggleLogged }}>
+      {children}
+    </LoginContext.Provider>
+  );
+};
