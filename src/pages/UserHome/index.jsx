@@ -1,8 +1,9 @@
 import { FeedBoxContainer, MainWrapper, RankingContainer } from "./styles";
-import { PostMock } from "../../Mock/PostMock";
-import { FeedBox } from "../../components/FeedBox";
+import { posts } from "../../Mock/PostMock";
+import { PostBox } from "../../components/PostBox";
 import { RankingUnit } from "../../components/RankingUnit";
 import { Header } from "../../components/Header";
+import { usuarios } from "../../Mock/UserMock";
 // import { useContext } from "react";
 // import { LoginContext } from "../../contexts/LoginContext";
 export const UserHome = () => {
@@ -17,12 +18,22 @@ export const UserHome = () => {
       <Header LoggedHeaderType={true} />
       <MainWrapper>
         <FeedBoxContainer>
-          <FeedBox Mock={PostMock}></FeedBox>
+          {posts.map((post) => {
+            return (
+              <PostBox
+                UserName={post.userName}
+                PostedTime={post.postedTime}
+                PostTitle={post.postTitle}
+                PostDescription={post.postDescription}
+                PostHashtags={post.postHashTags}
+              />
+            );
+          })}
         </FeedBoxContainer>
         <RankingContainer>
-          <RankingUnit />
-          <RankingUnit />
-          <RankingUnit />
+          {usuarios.map((usuario, index) => {
+            return <RankingUnit key={index} UserName={usuario.name} />;
+          })}
         </RankingContainer>
       </MainWrapper>
     </>

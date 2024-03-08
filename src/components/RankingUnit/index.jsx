@@ -8,16 +8,16 @@ import {
 } from "./styles";
 import { UserRoundProfile } from "../UserRoundProfile";
 
-export const RankingUnit = () => {
+export const RankingUnit = ({ImgSrc="https://avatars.githubusercontent.com/u/101150281?v=4", ImgAlt="Profile pic icon/button", UserName}) => {
   return (
     <RankingBoxContainer>
       <UserCotainer>
         <UserRoundProfile
-          SRC="https://avatars.githubusercontent.com/u/101150281?v=4"
-          ALT="Profile pic icon/button"
+          SRC={ImgSrc}
+          ALT={ImgAlt}
         />
         <UserSubContainer>
-          <UserNameText>Usuário nome</UserNameText>
+          <UserNameText>{UserName}</UserNameText>
           <LoadBarContainer>
             <LoadBar />
           </LoadBarContainer>

@@ -17,7 +17,7 @@ width: 100%;
 height: 50%;
 `
 
-export const PostImg = styled.img`
+export const PostStyledImg = styled.img`
 width: 100%;
 height: 100%;
 `
@@ -57,7 +57,7 @@ color: white;
 text-align: left;
 `
 
-export const PostedTime = styled.h6`
+export const PostedTimeText = styled.h6`
 font-size: 12px;
 font-weight: 400;
 /* line-height: 16.34px; */
@@ -83,7 +83,7 @@ line-height: 24.51px;
 color: white;
 `
 
-export const PostDescription = styled.h6`
+export const PostDescriptionText = styled.h6`
 font-size: 12px;
 font-weight: 400;
 line-height: 16.34px;

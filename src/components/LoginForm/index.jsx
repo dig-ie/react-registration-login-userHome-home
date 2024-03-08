@@ -57,7 +57,7 @@ export const LoginForm = ({ navigateTo }) => {
     // usando a função de retorno de chamada de setUser
     setUser((prevUser) => {
       const isValidUser = usuarios.some((usuario) =>
-        _isEqual(omit(prevUser, "id"), omit(usuario, "id"))
+        _isEqual(omit(prevUser, "id", "imgUrl"), omit(usuario, "id", "imgUrl"))
       );
 
       if (isValidUser) {
