@@ -38,6 +38,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
+    /* overflow-y:hidden; */
+    overflow-y: auto;
+    background-color: rgba(30, 25, 44, 1);
 }
 ol, ul {
     list-style: none;

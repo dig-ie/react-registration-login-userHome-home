@@ -1,7 +1,7 @@
 import { InputContainer, Inputt, ImgDiv, Img } from "./styles";
 import { useController, useForm } from "react-hook-form";
 
-export const Input = ({ control, name, inputIcon }) => {
+export const Input = ({ control, name, inputIcon, PlaceHolder, InputType }) => {
   const {
     field,
     fieldState: { invalid, isTouched, isDirty },
@@ -14,6 +14,8 @@ export const Input = ({ control, name, inputIcon }) => {
   return (
     <InputContainer>
       <Inputt
+        type={InputType}
+        placeholder={PlaceHolder}
         onChange={field.onChange} // send value to hook form
         onBlur={field.onBlur} // notify when input is touched/blur
         value={field.value} // input value

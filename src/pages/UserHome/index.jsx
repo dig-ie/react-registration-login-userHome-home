@@ -1,8 +1,13 @@
-import { FeedBoxContainer, MainWrapper, RankingContainer } from "./styles";
-import { posts } from "../../Mock/PostMock";
+import {
+  FeedBoxContainer,
+  MainWrapper,
+  RankingContainer,
+  Body,
+} from "./styles";
 import { PostBox } from "../../components/PostBox";
 import { RankingUnit } from "../../components/RankingUnit";
 import { Header } from "../../components/Header";
+import { posts } from "../../Mock/PostMock";
 import { usuarios } from "../../Mock/UserMock";
 // import { useContext } from "react";
 // import { LoginContext } from "../../contexts/LoginContext";
@@ -21,6 +26,8 @@ export const UserHome = () => {
           {posts.map((post) => {
             return (
               <PostBox
+                PostImgSrc={post.imgLink}
+                UserImgSrc={post.userImgLink}
                 UserName={post.userName}
                 PostedTime={post.postedTime}
                 PostTitle={post.postTitle}
@@ -32,7 +39,13 @@ export const UserHome = () => {
         </FeedBoxContainer>
         <RankingContainer>
           {usuarios.map((usuario, index) => {
-            return <RankingUnit key={index} UserName={usuario.name} />;
+            return (
+              <RankingUnit
+                key={index}
+                ImgSrc={usuario.imgUrl}
+                UserName={usuario.name}
+              />
+            );
           })}
         </RankingContainer>
       </MainWrapper>

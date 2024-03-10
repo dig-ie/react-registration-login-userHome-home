@@ -1,44 +1,51 @@
-import { MainWrapper, TextContainer, Text1, LoginBoxContainer } from "./styles";
+import {
+  MainWrapper,
+  TextContainer,
+  Text1,
+  LoginBoxContainer,
+  LoginH1,
+  LoginH2,
+} from "./styles";
 import { Header } from "../../components/Header/index";
 import { LoginForm } from "../../components/LoginForm";
-import { LoginContext } from "../../contexts/LoginContext";
-// import { useForm } from "react-hook-form"
-// import { yupResolver } from "@hookform/resolvers/yup"
-// import * as yup from "yup"
+// import { LoginContext } from "../../contexts/LoginContext";
+import { useNavigate } from "react-router-dom";
 
-let LoginBoxTitle_Text = "Faça seu cadastro";
-let Text_Content =
+let loginBoxTitle_Text = "Conecte-se";
+let loginBoxSubTitle_Text = "Faça seu login e make the change._";
+let button_Text = "Entrar";
+let forgottPass_text = "Esqueci minha senha";
+let aat_Text = "Criar conta";
+let text_Content =
   "A plataforma para você aprender com experts, dominar as principais tecnologias e entrar mais rápido nas empresas mais desejadas.";
-let Button_Text = "Entrar";
-let ForgottPass_text = "Esqueci minha senha";
-let CrateAccount_Text = "Criar conta";
-let LoginBoxSubTitle_Text = "Faça seu login e make the change._";
 
 export const Login = ({
-  LoginBoxTitle_Text,
-  Text_Content,
-  Button_Text,
-  ForgottPass_text,
-  CrateAccount_Text,
-  LoginBoxSubTitle_Text,
+  LoginBoxTitle_Text = loginBoxTitle_Text,
+  LoginBoxSubTitle_Text = loginBoxSubTitle_Text,
+  Button_Text = button_Text,
+  ForgottPass_text = forgottPass_text,
+  CreateAccount_Text = aat_Text,
+  Text_Content = text_Content,
 }) => {
+  const navigate = useNavigate();
   return (
     <>
-      <LoginContext.Provider
-        value={{ userLogged: false, toggleLogged: () => null }}
-      >
-        <Header LoggedHeaderType={false} />
-        <MainWrapper>
-          <TextContainer>
-            <Text1>{Text_Content}</Text1>
-          </TextContainer>
-          <LoginBoxContainer>
-            <LoginForm navigateTo={"/UserHome"} />
-            {/* <LoginBox LoginBoxTitleText={LoginBoxTitle_Text} LoginBoxSubTitleText={LoginBoxSubTitle_Text}
-             OutlinedButtonText={Button_Text} ForgottPassText={ForgottPass_text} CrateAccountTextt={CrateAccount_Text}/> */}
-          </LoginBoxContainer>
-        </MainWrapper>
-      </LoginContext.Provider>
+      <Header OnClick2={()=>{navigate("/Register")}}Text1={"Entrar"} Text2={"Cadastrar"} LoggedHeaderType={false} />
+      <MainWrapper>
+        <TextContainer>
+          <Text1>{Text_Content}</Text1>
+        </TextContainer>
+        <LoginBoxContainer>
+          <LoginH1>{LoginBoxTitle_Text}</LoginH1>
+          <LoginH2>{LoginBoxSubTitle_Text}</LoginH2>
+          <LoginForm
+            navigateTo={"/UserHome"}
+            buttonText={Button_Text}
+            CreateAccountTextP={CreateAccount_Text}
+            ForgottPassWordTextP={ForgottPass_text}
+          />
+        </LoginBoxContainer>
+      </MainWrapper>
     </>
   );
 };

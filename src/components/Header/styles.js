@@ -19,7 +19,7 @@ export const LeftSideHeaderContainer = styled.div`
   align-items: center;
   width: 70%;
   height: 100%;
-  background-color: red;
+
   z-index: 90;
   gap: 16px;
 `;

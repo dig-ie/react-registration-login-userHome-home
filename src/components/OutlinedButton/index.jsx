@@ -1,13 +1,10 @@
-import {ButtonOutlied, ButtonIternStyleDiv, ButtonContainer} from './styles'
+import { ButtonOutlied, ButtonIternStyleDiv, ButtonContainer } from "./styles";
 
-export const OutlinedButton = ({buttonText}) => {
-
-    return(
-        <>
-        <ButtonIternStyleDiv type='button'>{buttonText}</ButtonIternStyleDiv>
-        <ButtonOutlied>
-        </ButtonOutlied>
-        </>
-            
-    )
-}
+export const OutlinedButton = ({ buttonText }) => {
+  return (
+    <ButtonContainer>
+      <ButtonIternStyleDiv type="button">{buttonText}</ButtonIternStyleDiv>
+      <ButtonOutlied></ButtonOutlied>
+    </ButtonContainer>
+  );
+};

@@ -4,7 +4,7 @@ export const RankingBoxContainer = styled.div`
   width: 100%;
   height: 38px;
   min-height: 65px;
-  background-color: #3b4651;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,6 +28,7 @@ export const UserSubContainer = styled.div`
 export const UserNameText = styled.h1`
   color: white;
   font-size: 18px;
+  padding-bottom: 4px;
 `;
 export const LoadBarContainer = styled.div`
   width: 100px;

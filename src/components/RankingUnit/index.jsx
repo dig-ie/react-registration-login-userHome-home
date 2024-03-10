@@ -8,7 +8,7 @@ import {
 } from "./styles";
 import { UserRoundProfile } from "../UserRoundProfile";
 
-export const RankingUnit = ({ImgSrc="https://avatars.githubusercontent.com/u/101150281?v=4", ImgAlt="Profile pic icon/button", UserName}) => {
+export const RankingUnit = ({ImgSrc, ImgAlt="Profile pic icon/button", UserName}) => {
   return (
     <RankingBoxContainer>
       <UserCotainer>

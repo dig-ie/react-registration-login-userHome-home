@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-// import { useContext } from "react";
 import { Button } from "../Button/index";
 import { Input } from "../Input/index";
-import { Form, ErrorText } from "./styles";
+import {
+  Form,
+  ErrorText,
+  BottomTextsContainer,
+  ForgottPasswordText,
+  CreateAccountText,
+} from "./styles";
 import { useForm } from "react-hook-form";
 import { usuarios } from "../../Mock/UserMock";
 import _isEqual from "lodash/isEqual";
@@ -11,7 +16,9 @@ import { useNavigate } from "react-router-dom";
 // import { LoginContext } from "../../contexts/LoginContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
+import ProfileIcon from "../../icons/Profile.png";
+import Email from "../../icons/Email.png";
+import Password from "../../icons/Password.png";
 const schema = yup
   .object({
     name: yup.string().required(),
@@ -20,7 +27,12 @@ const schema = yup
   })
   .required();
 
-export const LoginForm = ({ navigateTo }) => {
+export const LoginForm = ({
+  navigateTo,
+  buttonText,
+  ForgottPassWordTextP,
+  CreateAccountTextP,
+}) => {
   // const { userLogged, toggleLogged } = useContext(LoginContext);
   // console.log("USER CONTEXT " + userLogged);
   const navigate = useNavigate();
@@ -68,21 +80,38 @@ export const LoginForm = ({ navigateTo }) => {
       return newUser; // Retornando o novo usuário atualizado
     });
   };
-
-  // Redireciona para a página de usuário se o login for bem-sucedido
-  // if (loginSuccess) {
-  //   navigate("/UserHome");
-  // }
-
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Input control={control} name="name" rules={{ required: true }} />
+      <Input
+        inputIcon={ProfileIcon}
+        PlaceHolder={"Nome"}
+        control={control}
+        name="name"
+        rules={{ required: true }}
+      />
       <ErrorText>{errors.name?.message}</ErrorText>
-      <Input control={control} name="email" rules={{ required: true }} />
+      <Input
+        inputIcon={Email}
+        PlaceHolder={"Email"}
+        control={control}
+        name="email"
+        rules={{ required: true }}
+      />
       <ErrorText>{errors.email?.message}</ErrorText>
-      <Input control={control} name="password" rules={{ required: true }} />
+      <Input
+        InputType={"password"}
+        inputIcon={Password}
+        PlaceHolder={"Password"}
+        control={control}
+        name="password"
+        rules={{ required: true }}
+      />
       <ErrorText>{errors.password?.message}</ErrorText>
-      <Button type="submit" />
+      <Button type="submit" ButtonText={buttonText}></Button>
+      <BottomTextsContainer>
+        <ForgottPasswordText>{ForgottPassWordTextP}</ForgottPasswordText>
+        <CreateAccountText>{CreateAccountTextP}</CreateAccountText>
+      </BottomTextsContainer>
     </Form>
   );
 };

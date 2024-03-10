@@ -12,10 +12,12 @@ import {
   PostDetailsContainer,
   PostTitleText,
   PostDescriptionText,
+  PostHashTagContainer,
   PostHashTag,
 } from "./styles";
 export const PostBox = ({
-  PostImg,
+  PostImgSrc,
+  UserImgSrc,
   UserName,
   PostedTime,
   PostTitle,
@@ -24,14 +26,13 @@ export const PostBox = ({
 }) => {
   return (
     <>
-      <FeedText>Feed</FeedText>
       <PostContainer>
         <PostImgContainer>
-          <PostStyledImg src={PostImg} />
+          <PostStyledImg src={PostImgSrc} />
         </PostImgContainer>
         <PostInfoContainer>
           <UserInfoContainer>
-            <UserImg />
+            <UserImg src={UserImgSrc}/>
             <UserNameAndPostedTimeContainer>
               <UserNameText>{UserName}</UserNameText>
               <PostedTimeText>{PostedTime}</PostedTimeText>
@@ -40,9 +41,11 @@ export const PostBox = ({
           <PostDetailsContainer>
             <PostTitleText>{PostTitle}</PostTitleText>
             <PostDescriptionText>{PostDescription}</PostDescriptionText>
-            {PostHashtags.map((hashtag) => {
-              return <PostHashTag>{hashtag}</PostHashTag>;
-            })}
+            <PostHashTagContainer>
+              {PostHashtags.map((hashtag) => {
+                return <PostHashTag>{hashtag}</PostHashTag>;
+              })}
+            </PostHashTagContainer>
           </PostDetailsContainer>
         </PostInfoContainer>
       </PostContainer>
