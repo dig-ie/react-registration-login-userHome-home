@@ -2,7 +2,7 @@ import {
   FeedBoxContainer,
   MainWrapper,
   RankingContainer,
-  Body,
+  RankingTitle,
 } from "./styles";
 import { PostBox } from "../../components/PostBox";
 import { RankingUnit } from "../../components/RankingUnit";
@@ -20,7 +20,12 @@ export const UserHome = () => {
   return (
     // <LoginContext.Provider value={{userLogged: false, toggleLogged:()=>null}}>
     <>
-      <Header LoggedHeaderType={true} />
+      <Header
+        Text0="Home"
+        Text1="Entrar"
+        Text2="Registrar"
+        LoggedHeaderType={true}
+      />
       <MainWrapper>
         <FeedBoxContainer>
           {posts.map((post) => {
@@ -38,6 +43,7 @@ export const UserHome = () => {
           })}
         </FeedBoxContainer>
         <RankingContainer>
+          <RankingTitle># RANKING DA SEMANA </RankingTitle>
           {usuarios.map((usuario, index) => {
             return (
               <RankingUnit

@@ -39,7 +39,7 @@ export const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  gap: 8px;
+  gap: 14px;
 `;
 
 export const SearchBarContainer = styled.div`

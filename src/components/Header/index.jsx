@@ -12,10 +12,13 @@ import { LogonButton } from "../LogonButton/index";
 import { SearchBar } from "../SearchBar";
 import { UserRoundProfile } from "../UserRoundProfile";
 import DioLogo from "../../icons/DioLogo.png";
+import { Link } from "react-router-dom";
 export const Header = ({
   LoggedHeaderType = false,
+  OnClick0="/",
   OnClick1,
   OnClick2,
+  Text0,
   Text1,
   Text2,
 }) => {
@@ -39,6 +42,7 @@ export const Header = ({
 
       {LoggedHeaderType === false ? (
         <ButtonsContainer>
+          <Link style={{color:"white", textDecoration: "none", fontSize: "18px"}}to={OnClick0}>{Text0}</Link>
           <LogonButton OnClick={OnClick1} LogonButtonText={Text1}></LogonButton>
           <LogonButton OnClick={OnClick2} LogonButtonText={Text2}></LogonButton>
         </ButtonsContainer>

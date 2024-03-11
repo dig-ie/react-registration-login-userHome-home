@@ -21,8 +21,9 @@ export const Home = () => {
         OnClick1={() => {
           navigate("/Login");
         }}
-        Text1="aa"
-        button2Text="Cadastrar"
+        Text0={"Home"}
+        Text1="Entrar"
+        Text2="Cadastrar"
       />
       <MainSectionContainer>
         <InfosSection>

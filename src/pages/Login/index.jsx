@@ -30,7 +30,19 @@ export const Login = ({
   const navigate = useNavigate();
   return (
     <>
-      <Header OnClick2={()=>{navigate("/Register")}}Text1={"Entrar"} Text2={"Cadastrar"} LoggedHeaderType={false} />
+      <Header
+        OnClick2={() => {
+          navigate("/Register");
+        }}
+        OnClick1={() => {
+          navigate("/Login");
+        }}
+        OnClick0="/"
+        Text0="Home"
+        Text1={"Entrar"}
+        Text2={"Cadastrar"}
+        LoggedHeaderType={false}
+      />
       <MainWrapper>
         <TextContainer>
           <Text1>{Text_Content}</Text1>
@@ -40,6 +52,7 @@ export const Login = ({
           <LoginH2>{LoginBoxSubTitle_Text}</LoginH2>
           <LoginForm
             navigateTo={"/UserHome"}
+            createAccountLink={"/Register"}
             buttonText={Button_Text}
             CreateAccountTextP={CreateAccount_Text}
             ForgottPassWordTextP={ForgottPass_text}

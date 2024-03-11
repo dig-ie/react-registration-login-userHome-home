@@ -23,3 +23,10 @@ export const RankingContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const RankingTitle = styled.h1`
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  line-height: 24.51px;
+  text-align: center;
+`;

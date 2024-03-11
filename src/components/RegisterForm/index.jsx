@@ -24,12 +24,12 @@ const schema = yup
     name: yup.string().required(),
     email: yup.string().required(),
     password: yup.string().required(),
+    password1: yup.string().required().matches(yup.object.password),
   })
   .required();
 
-export const LoginForm = ({
+export const RegisterForm = ({
   navigateTo,
-  createAccountLink,
   buttonText,
   ForgottPassWordTextP,
   CreateAccountTextP,
@@ -48,6 +48,7 @@ export const LoginForm = ({
       name: "",
       email: "",
       password: "",
+      password1: "",
     },
     resolver: yupResolver(schema),
     mode: "onChange",
@@ -107,13 +108,19 @@ export const LoginForm = ({
         name="password"
         rules={{ required: true }}
       />
+      <Input
+        InputType={"password"}
+        inputIcon={Password}
+        PlaceHolder={"Password"}
+        control={control}
+        name="password1"
+        rules={{ required: true }}
+      />
       <ErrorText>{errors.password?.message}</ErrorText>
       <Button type="submit" ButtonText={buttonText}></Button>
       <BottomTextsContainer>
         <ForgottPasswordText>{ForgottPassWordTextP}</ForgottPasswordText>
-        <CreateAccountText>
-          <Link to={createAccountLink} style={{ color: 'rgba(35, 221, 122, 1)', textDecoration: 'none' }}>{CreateAccountTextP}</Link>
-        </CreateAccountText>
+        <Link to="/Login" style={{ textDecoration: 'none' }}><CreateAccountText>{CreateAccountTextP}</CreateAccountText></Link>
       </BottomTextsContainer>
     </Form>
   );
