@@ -8,9 +8,10 @@ import {
   Text1,
   Text2,
   Text3,
+  ButtonContainer,
 } from "./styles";
+import { Button } from "../../components/Button";
 import HomeImg from "../../imgs/HomeImg.png";
-import { OutlinedButton } from "../../components/OutlinedButton";
 import { Header } from "../../components/Header";
 import { useNavigate } from "react-router-dom";
 export const Home = () => {
@@ -24,6 +25,9 @@ export const Home = () => {
         Text0={"Home"}
         Text1="Entrar"
         Text2="Cadastrar"
+        LogoOnclick={() => {
+          navigate("/");
+        }}
       />
       <MainSectionContainer>
         <InfosSection>
@@ -37,7 +41,14 @@ export const Home = () => {
               comunidade com os melhores experts.
             </Text3>
           </InfosTextContainer>
-          <OutlinedButton buttonText="Começar agora"></OutlinedButton>
+          <ButtonContainer>
+            <Button
+              OnClick={() => {
+                navigate("/Register");
+              }}
+              ButtonText="Começar agora"
+            ></Button>
+          </ButtonContainer>
         </InfosSection>
         <HomeImgContainer>
           <HomeImgStyled src={HomeImg} />

@@ -19,6 +19,10 @@ export const BottomTextsContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
+export const ButtonContainer = styled.div`
+  margin: 1rem;
+  width: 100%;
+`;
 export const ForgottPasswordText = styled.span`
   font-weight: 700;
   font-size: 14px;

@@ -31,6 +31,9 @@ export const Login = ({
   return (
     <>
       <Header
+        LogoOnclick={() => {
+          navigate("/");
+        }}
         OnClick2={() => {
           navigate("/Register");
         }}

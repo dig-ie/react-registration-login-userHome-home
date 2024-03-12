@@ -7,6 +7,7 @@ import {
   SearchBarContainer,
   HeaderLink,
   LeftSideHeaderContainer,
+  LogoButton,
 } from "./styles";
 import { LogonButton } from "../LogonButton/index";
 import { SearchBar } from "../SearchBar";
@@ -15,19 +16,22 @@ import DioLogo from "../../icons/DioLogo.png";
 import { Link } from "react-router-dom";
 export const Header = ({
   LoggedHeaderType = false,
-  OnClick0="/",
+  OnClick0 = "/",
   OnClick1,
   OnClick2,
   Text0,
   Text1,
   Text2,
+  LogoOnclick
 }) => {
   // const logged = useContext(LoginContext);
   return (
     <LoginHeaderContainer>
       <LeftSideHeaderContainer>
         <HeaderLogoContainer>
-          <img src={DioLogo} alt="logo" />
+          <LogoButton onClick={LogoOnclick}>
+            <img src={DioLogo} alt="logo" />
+          </LogoButton>
         </HeaderLogoContainer>
         {LoggedHeaderType === true ? (
           <>
@@ -42,7 +46,12 @@ export const Header = ({
 
       {LoggedHeaderType === false ? (
         <ButtonsContainer>
-          <Link style={{color:"white", textDecoration: "none", fontSize: "18px"}}to={OnClick0}>{Text0}</Link>
+          <Link
+            style={{ color: "white", textDecoration: "none", fontSize: "18px" }}
+            to={OnClick0}
+          >
+            {Text0}
+          </Link>
           <LogonButton OnClick={OnClick1} LogonButtonText={Text1}></LogonButton>
           <LogonButton OnClick={OnClick2} LogonButtonText={Text2}></LogonButton>
         </ButtonsContainer>

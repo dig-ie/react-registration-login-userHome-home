@@ -1,8 +1,8 @@
 import { Buttonn, ButtonOutlined } from './styles'
-export const Button = ({ Type, ButtonText }) => {
+export const Button = ({ Type, ButtonText, OnClick }) => {
 
     return (
-        <ButtonOutlined><Buttonn type={ Type }>{ ButtonText }</Buttonn></ButtonOutlined>
+        <ButtonOutlined><Buttonn onClick={OnClick} type={ Type }>{ ButtonText }</Buttonn></ButtonOutlined>
         
     )
 }

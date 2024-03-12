@@ -7,9 +7,10 @@ import {
   BottomTextsContainer,
   ForgottPasswordText,
   CreateAccountText,
+  ButtonContainer,
 } from "./styles";
 import { useForm } from "react-hook-form";
-import { usuarios } from "../../Mock/UserMock";
+import { usuarios, adicionarNovoUsuario } from "../../Mock/UserMock";
 import _isEqual from "lodash/isEqual";
 import omit from "lodash/omit";
 import { useNavigate, Link } from "react-router-dom";
@@ -53,34 +54,20 @@ export const RegisterForm = ({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
-  // const { logged, toggleLogged } = useContext(LoginContext);
 
+  //ONSUBMIT -----------------------------------------------------------------------------------
   const onSubmit = (data) => {
     console.log("data: ", data);
 
     const newUser = {
-      id: `${usuarios.length}`, // Corrigido
+      id: `${usuarios.length + 1}`, // Corrigido
       name: `${data.name}`,
       email: `${data.email}`,
       password: `${data.password}`,
     };
 
-    setUser(newUser);
-
-    // Garantindo que a navegação ocorra após o estado ser atualizado
-    // usando a função de retorno de chamada de setUser
-    setUser((prevUser) => {
-      const isValidUser = usuarios.some((usuario) =>
-        _isEqual(omit(prevUser, "id", "imgUrl"), omit(usuario, "id", "imgUrl"))
-      );
-
-      if (isValidUser) {
-        console.log("VALIDAÇÃO SUCESSO -------------------");
-        navigate(navigateTo);
-      }
-
-      return newUser; // Retornando o novo usuário atualizado
-    });
+    adicionarNovoUsuario(newUser);
+    return "new user" + newUser;
   };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -116,11 +103,15 @@ export const RegisterForm = ({
         name="password1"
         rules={{ required: true }}
       />
-      <ErrorText>{errors.password?.message}</ErrorText>
-      <Button type="submit" ButtonText={buttonText}></Button>
+      <ErrorText>{errors.password1?.message}</ErrorText>
+      <ButtonContainer>
+        <Button type="submit" ButtonText={buttonText}></Button>
+      </ButtonContainer>
       <BottomTextsContainer>
         <ForgottPasswordText>{ForgottPassWordTextP}</ForgottPasswordText>
-        <Link to="/Login" style={{ textDecoration: 'none' }}><CreateAccountText>{CreateAccountTextP}</CreateAccountText></Link>
+        <Link to="/Login" style={{ textDecoration: "none" }}>
+          <CreateAccountText>{CreateAccountTextP}</CreateAccountText>
+        </Link>
       </BottomTextsContainer>
     </Form>
   );

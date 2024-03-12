@@ -24,7 +24,7 @@ export const usuarios = [
       "https://i.pinimg.com/564x/16/fd/cd/16fdcdeb09ad7fe3fa57b1b5bbcab4a3.jpg",
   },
   {
-    id: 2,
+    id: 3,
     name: "User 3",
     email: "email2@gmail.com",
     password: "123",

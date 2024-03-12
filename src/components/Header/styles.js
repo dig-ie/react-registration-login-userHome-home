@@ -30,6 +30,20 @@ export const HeaderLogoContainer = styled.div`
   margin-left: 4rem;
 `;
 
+export const LogoButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+`;
+
 export const ButtonsContainer = styled.div`
   position: absolute;
   right: 5px;

@@ -12,7 +12,6 @@ export const ButtonOutlined = styled.span`
   display: flex;
   justify-content: center;
   align-items: center !important;
-  margin: 1rem;
 `;
 export const Buttonn = styled.button`
   cursor: pointer;
@@ -34,4 +33,3 @@ export const Buttonn = styled.button`
   justify-content: center;
   align-items: center;
 `;
-

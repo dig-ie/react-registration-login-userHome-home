@@ -7,6 +7,7 @@ import {
   BottomTextsContainer,
   ForgottPasswordText,
   CreateAccountText,
+  ButtonContainer,
 } from "./styles";
 import { useForm } from "react-hook-form";
 import { usuarios } from "../../Mock/UserMock";
@@ -108,11 +109,16 @@ export const LoginForm = ({
         rules={{ required: true }}
       />
       <ErrorText>{errors.password?.message}</ErrorText>
-      <Button type="submit" ButtonText={buttonText}></Button>
+      <ButtonContainer><Button type="submit" ButtonText={buttonText}></Button></ButtonContainer>
       <BottomTextsContainer>
         <ForgottPasswordText>{ForgottPassWordTextP}</ForgottPasswordText>
         <CreateAccountText>
-          <Link to={createAccountLink} style={{ color: 'rgba(35, 221, 122, 1)', textDecoration: 'none' }}>{CreateAccountTextP}</Link>
+          <Link
+            to={createAccountLink}
+            style={{ color: "rgba(35, 221, 122, 1)", textDecoration: "none" }}
+          >
+            {CreateAccountTextP}
+          </Link>
         </CreateAccountText>
       </BottomTextsContainer>
     </Form>

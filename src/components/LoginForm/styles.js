@@ -9,6 +9,11 @@ export const Form = styled.form`
   min-height: 70px;
 `;
 
+export const ButtonContainer = styled.div`
+  width: 100%;
+  margin: 1rem;
+`
+
 export const ErrorText = styled.p`
   color: red;
   font-size: 10px;
