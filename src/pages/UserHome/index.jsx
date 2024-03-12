@@ -7,20 +7,38 @@ import {
 import { PostBox } from "../../components/PostBox";
 import { RankingUnit } from "../../components/RankingUnit";
 import { Header } from "../../components/Header";
-import { posts } from "../../Mock/PostMock";
-import { usuarios } from "../../Mock/UserMock";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
+import React, { useState, useEffect } from "react";
 // import { useContext } from "react";
 // import { LoginContext } from "../../contexts/LoginContext";
 export const UserHome = () => {
-  //   const { logged, toggleLogged } = useContext(LoginContext);
-  //   toggleLogged();
-  // const {userLogged, toggleLogged } = useContext(LoginContext);
-  // toggleLogged();
-  // console.log("USERHOME LOG: "+ userLogged)
   const navigate = useNavigate();
+  const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    api
+      .get("/users")
+      .then((response) => {
+        const usersData = response.data;
+        setUsers(usersData);
+      })
+      .catch((error) => {
+        console.error("Erro ao obter usuários:", error);
+      });
+
+    api
+      .get("/posts")
+      .then((response) => {
+        const postsData = response.data;
+        setPosts(postsData);
+      })
+      .catch((error) => {
+        console.error("Erro ao obter posts:", error);
+      });
+  }, []);
   return (
-    // <LoginContext.Provider value={{userLogged: false, toggleLogged:()=>null}}>
     <>
       <Header
         LogoOnclick={() => {
@@ -49,19 +67,15 @@ export const UserHome = () => {
         </FeedBoxContainer>
         <RankingContainer>
           <RankingTitle># RANKING DA SEMANA </RankingTitle>
-          {usuarios.map((usuario, index) => {
-            return (
-              <RankingUnit
-                key={index}
-                ImgSrc={usuario.imgUrl}
-                UserName={usuario.name}
-              />
-            );
-          })}
+          {users.map((user) => (
+            <RankingUnit
+              key={user.id}
+              ImgSrc={user.imgUrl}
+              UserName={user.name}
+            ></RankingUnit>
+          ))}
         </RankingContainer>
       </MainWrapper>
     </>
-
-    // </LoginContext.Provider>
   );
 };

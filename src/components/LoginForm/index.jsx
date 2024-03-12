@@ -10,9 +10,7 @@ import {
   ButtonContainer,
 } from "./styles";
 import { useForm } from "react-hook-form";
-import { usuarios } from "../../Mock/UserMock";
 import _isEqual from "lodash/isEqual";
-import omit from "lodash/omit";
 import { useNavigate, Link } from "react-router-dom";
 // import { LoginContext } from "../../contexts/LoginContext";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -20,9 +18,10 @@ import * as yup from "yup";
 import ProfileIcon from "../../icons/Profile.png";
 import Email from "../../icons/Email.png";
 import Password from "../../icons/Password.png";
+import { api } from "../../services/api";
+
 const schema = yup
   .object({
-    name: yup.string().required(),
     email: yup.string().required(),
     password: yup.string().required(),
   })
@@ -38,60 +37,36 @@ export const LoginForm = ({
   // const { userLogged, toggleLogged } = useContext(LoginContext);
   // console.log("USER CONTEXT " + userLogged);
   const navigate = useNavigate();
-  const [user, setUser] = useState({});
-  const [loginSuccess, setLoginSuccess] = useState(false);
   const {
     handleSubmit,
     control,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      name: "",
       email: "",
       password: "",
     },
     resolver: yupResolver(schema),
     mode: "onChange",
   });
-  // const { logged, toggleLogged } = useContext(LoginContext);
 
-  const onSubmit = (data) => {
-    console.log("data: ", data);
-
-    const newUser = {
-      id: `${usuarios.length}`, // Corrigido
-      name: `${data.name}`,
-      email: `${data.email}`,
-      password: `${data.password}`,
-    };
-
-    setUser(newUser);
-
-    // Garantindo que a navegação ocorra após o estado ser atualizado
-    // usando a função de retorno de chamada de setUser
-    setUser((prevUser) => {
-      const isValidUser = usuarios.some((usuario) =>
-        _isEqual(omit(prevUser, "id", "imgUrl"), omit(usuario, "id", "imgUrl"))
+  //ONSUBMIT FUNCTION SEARCHING ON THE JSON API IF THERE'S A USER THAT MATCHES THE FORM SUBMIT
+  const onSubmit = async (formData) => {
+    try {
+      const { data } = await api.get(
+        `users?email=${formData.email}&password=${formData.password}`
       );
-
-      if (isValidUser) {
-        console.log("VALIDAÇÃO SUCESSO -------------------");
+      console.log("api data:", data);
+      if (data.length == 1) {
         navigate(navigateTo);
       }
-
-      return newUser; // Retornando o novo usuário atualizado
-    });
+    } catch {
+      alert("Erroo");
+    }
   };
+
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        inputIcon={ProfileIcon}
-        PlaceHolder={"Nome"}
-        control={control}
-        name="name"
-        rules={{ required: true }}
-      />
-      <ErrorText>{errors.name?.message}</ErrorText>
       <Input
         inputIcon={Email}
         PlaceHolder={"Email"}
@@ -109,7 +84,9 @@ export const LoginForm = ({
         rules={{ required: true }}
       />
       <ErrorText>{errors.password?.message}</ErrorText>
-      <ButtonContainer><Button type="submit" ButtonText={buttonText}></Button></ButtonContainer>
+      <ButtonContainer>
+        <Button type="submit" ButtonText={buttonText}></Button>
+      </ButtonContainer>
       <BottomTextsContainer>
         <ForgottPasswordText>{ForgottPassWordTextP}</ForgottPasswordText>
         <CreateAccountText>

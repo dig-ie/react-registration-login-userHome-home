@@ -20,6 +20,7 @@ import * as yup from "yup";
 import ProfileIcon from "../../icons/Profile.png";
 import Email from "../../icons/Email.png";
 import Password from "../../icons/Password.png";
+import { api } from "../../services/api";
 const schema = yup
   .object({
     name: yup.string().required(),
@@ -56,18 +57,22 @@ export const RegisterForm = ({
   });
 
   //ONSUBMIT -----------------------------------------------------------------------------------
-  const onSubmit = (data) => {
-    console.log("data: ", data);
-
+  const onSubmit = async (data) => {
     const newUser = {
-      id: `${usuarios.length + 1}`, // Corrigido
       name: `${data.name}`,
       email: `${data.email}`,
       password: `${data.password}`,
+      imgUrl: "",
     };
-
-    adicionarNovoUsuario(newUser);
-    return "new user" + newUser;
+    //POSTING A NEW USER ON THE API JSON
+    try {
+      const response = await api.post(`/users`, newUser);
+      console.log("Novo usuário adicionado:", response.data);
+      return response.data;
+    } catch (error) {
+      console.error("Erro ao adicionar usuário:", error);
+      throw error;
+    }
   };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
