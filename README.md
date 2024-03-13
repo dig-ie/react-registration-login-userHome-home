@@ -1,7 +1,7 @@
 
 # Título do Projeto
 
-Páginas cadastro e login, que tratam formulários e validações, página de user home e página de home.
+Páginas cadastro e login, que tratam formulários e validações, página de user home e página de home utilizando bibliotecas como React Hook Form, YUP, React Router Dom, Json server e Styled Components.
 
 
 ## Funcionalidades
