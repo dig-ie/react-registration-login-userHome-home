@@ -12,8 +12,9 @@ Páginas cadastro e login, que tratam formulários e validações, página de us
 - Navegação e rotas feitas com a biblioteca react-router-dom
 
 
-## Demonstração
-[gif  demonstração](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbTlmOTY4eXJrdHV5NjByYXU1bjN3bHVobWlyNmNuZWhtcml0ajBrayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Mf4uydDMVccXVetyLA/giphy.gif)
+## Demonstração - Cdastro de novo usuário + Login. New User Register + Login
+![ReactApp-GoogleChrome-14March20241-ezgif com-video-to-gif-converter](https://github.com/dig-ie/trilha-react-cadastro-login-userHome/assets/101150281/d88396ab-f830-4760-beed-806fc4df6878)
+
 
 
 ## Aprendizados
