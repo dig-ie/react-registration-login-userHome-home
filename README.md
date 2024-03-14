@@ -11,6 +11,7 @@ Páginas cadastro e login, que tratam formulários e validações, página de us
 
 - Cadastro de usuário
 - Validação de campos com YUP:
+
     ![image](https://github.com/dig-ie/trilha-react-cadastro-login-userHome/assets/101150281/76f990ba-77ab-4c09-bebe-8abcdbb32bda)
 - Login com base no JSON da "fake" API (json-server lib)
 - Navegação e rotas feitas com a biblioteca react-router-dom
