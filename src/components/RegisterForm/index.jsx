@@ -44,6 +44,7 @@ export const RegisterForm = ({
   const {
     handleSubmit,
     control,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -68,11 +69,15 @@ export const RegisterForm = ({
     try {
       const response = await api.post(`/users`, newUser);
       console.log("Novo usuário adicionado:", response.data);
+      reset();
+      alert('Novo usuário adicionado.')
       return response.data;
     } catch (error) {
       console.error("Erro ao adicionar usuário:", error);
       throw error;
     }
+
+
   };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>

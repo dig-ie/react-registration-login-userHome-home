@@ -57,7 +57,7 @@ export const LoginForm = ({
         `users?email=${formData.email}&password=${formData.password}`
       );
       console.log("api data:", data);
-      if (data.length == 1) {
+      if (data.length >= 1) {
         navigate(navigateTo);
       }
     } catch {

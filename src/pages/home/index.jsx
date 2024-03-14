@@ -22,6 +22,9 @@ export const Home = () => {
         OnClick1={() => {
           navigate("/Login");
         }}
+        OnClick2={() => {
+          navigate("/Register");
+        }}
         Text0={"Home"}
         Text1="Entrar"
         Text2="Cadastrar"
