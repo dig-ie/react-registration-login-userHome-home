@@ -1,5 +1,5 @@
 
-# Screens, forms, navigation and validation with React and libraries
+# Screens, forms, navigation, validation abd API simutation and consuming with React and libraries
 
 ## Pages:
 Registration and login pages: which handle forms and validations;
