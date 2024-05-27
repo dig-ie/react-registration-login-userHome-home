@@ -1,7 +1,7 @@
 
-# Formulários, Navegação e validação com React e bibliotecas
+# Telas, formulários, navegação e validação com React e bibliotecas
 
-Páginas cadastro e login, que tratam formulários e validações, página de user home e página de home utilizando bibliotecas como React Hook Form, YUP, React Router Dom, Json Server, pelo qual foram feitas requisições ao db.json) e Styled Components.
+### Páginas: cadastro e login, que tratam formulários e validações, página de user home e página de home utilizando bibliotecas como React Hook Form, YUP, React Router Dom, Json Server, pelo qual foram feitas requisições ao db.json) e Styled Components.
 
 ## Demonstração - Cadastrando novo usuário + Login. New User Register + Login
 ![ReactApp-GoogleChrome-14March20241-ezgif com-video-to-gif-converter](https://github.com/dig-ie/trilha-react-cadastro-login-userHome/assets/101150281/d88396ab-f830-4760-beed-806fc4df6878)
