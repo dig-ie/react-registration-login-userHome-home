@@ -31,3 +31,10 @@ These pages handle forms, validations, and routing, using libraries such as Reac
   - Efficient use and reuse of components in the application
 
 ## Instalation
+### with the archives downloaded or repo cloned, run the following comands in the terminal:
+#### Install the dependencies
+`yarn`
+#### Initialize the json-server API
+`yarn api`
+#### Run
+`yarn start`
