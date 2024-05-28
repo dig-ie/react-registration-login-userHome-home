@@ -38,3 +38,5 @@ These pages handle forms, validations, and routing, using libraries such as Reac
 `yarn api`
 #### Run
 `yarn start`
+
+### Now you can register a new user, log in and navigate
