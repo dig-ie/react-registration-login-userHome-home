@@ -21,7 +21,7 @@ Which handle forms, validations, routing and stuff, using functionalities of lib
 - **Schema Validation Using Yup**
   - Implementing Yup for schema validation of form inputs
 - **User Registration and Login**
-  - Registration (POST) using the Json Server library fake API
+  - Registration (POST) using the Json Server library API
   - User login (GET) with the Json Server library fake API
 - **Navigation Between Pages**
   - Using React Router Dom for page navigation
