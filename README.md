@@ -2,7 +2,7 @@
 # Screens, forms, navigation, validation and API simutation and consuming with React and libraries
 ## Pages:
 ### "Home", "Registration", "Login" and "User home": 
-Pages styled with the Styled-Components library, handling forms, validations, and routing, using libraries such as React Hook Form, YUP, React Router Dom, and Json Server.
+Pages styled with the Styled-Components library based on DIO's figma prototype, handling forms, validations, and routing, using libraries such as React Hook Form, YUP, React Router Dom, and Json Server.
 
 ## Functionalities
 - User registration
