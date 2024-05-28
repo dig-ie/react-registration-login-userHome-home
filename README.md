@@ -12,7 +12,7 @@ Pages styled with the Styled-Components library, handling forms, validations, an
 
  ![image](https://github.com/dig-ie/trilha-react-cadastro-login-userHome/assets/101150281/76f990ba-77ab-4c09-bebe-8abcdbb32bda)
 
-## Demo - Registering new user + Login. New User Register + Login
+## Demo - Registering new user + Logging in
 ![ReactApp-GoogleChrome-14March20241-ezgif com-video-to-gif-converter](https://github.com/dig-ie/trilha-react-cadastro-login-userHome/assets/101150281/d88396ab-f830-4760-beed-806fc4df6878)
 
 ## Learnings
