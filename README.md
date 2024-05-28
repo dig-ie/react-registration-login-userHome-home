@@ -2,10 +2,8 @@
 # Screens, forms, navigation, validation and API simutation and consuming with React and libraries
 
 ## Pages:
-### Registration and login pages:
-Which handle forms and validations; Styled using styled-components. 
-### User home page and home: 
-Using functionalities of libraries such as React Hook Form, YUP, React Router Dom, Json Server, so requests were made to db.json) and Styled Components. 
+### "Home", "Registration", "Login" and "User home": 
+Which handle forms, validations, routing and stuff, using functionalities of libraries such as React Hook Form, YUP, React Router Dom, Json Server, so requests were made to db.json) and Styled Components.
 
 ## Demo - Registering new user + Login. New User Register + Login
 ![ReactApp-GoogleChrome-14March20241-ezgif com-video-to-gif-converter](https://github.com/dig-ie/trilha-react-cadastro-login-userHome/assets/101150281/d88396ab-f830-4760-beed-806fc4df6878)
