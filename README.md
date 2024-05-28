@@ -16,7 +16,18 @@ Which handle forms, validations, routing and stuff, using functionalities of lib
 - Navigation and routes made with the react-router-dom library
 
 ## Learnings
-
-Forms in practice with React Hook Form, schema validation using Yup, registration (POST) and user login based on json from the fake api of the Json Server library (GET), navigation between pages using React Router Dom, componentization and use/ reuse of elements with React, etc.
+- **Forms in Practice with React Hook Form**
+  - Utilizing React Hook Form for handling form state and validation
+- **Schema Validation Using Yup**
+  - Implementing Yup for schema validation of form inputs
+- **User Registration and Login**
+  - Registration (POST) using the Json Server library fake API
+  - User login (GET) with the Json Server library fake API
+- **Navigation Between Pages**
+  - Using React Router Dom for page navigation
+- **Componentization and Use/Reuse of Elements with React**
+  - Practice with styled-components
+  - Creating reusable components
+  - Efficient use and reuse of components in the application
 
 ## Instalation
