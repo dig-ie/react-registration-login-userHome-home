@@ -39,4 +39,4 @@ These pages handle forms, validations, and routing, using libraries such as Reac
 #### Run
 `yarn start`
 
-### Now you can register a new user, log in and navigate
+### Now you can register a new user, log in and use the project through the browser.
