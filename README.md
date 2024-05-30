@@ -1,20 +1,15 @@
-
 # Registration, Login and pages
 ## Pages:
 ### "Home", "Registration", "Login" and "User home":  
 These pages handle forms, validations, and routing, using libraries such as React Hook Form, YUP, React Router Dom, and Json Server. Visually styled with the Styled-Components library based on DIO's figma prototype.
-
 ## Functionalities
 - User registration
 - Login based on JSON from the API that i simulated with the json-server library
 - Navigation and routes made with the react-router-dom library
 - Validation of fields with YUP library:
-
  ![image](https://github.com/dig-ie/trilha-react-cadastro-login-userHome/assets/101150281/76f990ba-77ab-4c09-bebe-8abcdbb32bda)
-
 ## Demo - Registering new user + Logging in
 ![ReactApp-GoogleChrome-14March20241-ezgif com-video-to-gif-converter](https://github.com/dig-ie/trilha-react-cadastro-login-userHome/assets/101150281/d88396ab-f830-4760-beed-806fc4df6878)
-
 ## Learnings
 - **Forms in Practice with React Hook Form**
   - Utilizing React Hook Form for handling form state and validation
