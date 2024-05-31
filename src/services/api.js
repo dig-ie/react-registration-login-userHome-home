@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-const baseURL = process.env.NODE_ENV === "production" ? "https://seuapp.vercel.app/api" : "http://localhost:8001";
+const baseURL = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:8001';
 
 export const api = axios.create({
   baseURL: baseURL,
