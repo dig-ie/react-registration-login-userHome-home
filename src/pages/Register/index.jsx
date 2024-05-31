@@ -9,9 +9,6 @@ import {
 import { Header } from "../../components/Header/index";
 import { useNavigate } from "react-router-dom";
 import { RegisterForm } from "../../components/RegisterForm";
-import EmailIconPng from "../../icons/Email.png";
-import PasswordIconPng from "../../icons/Password.png";
-import ProfileIconPng from "../../icons/Profile.png";
 
 let registerBoxTitle_Text = "Comece agora grátis";
 let text1_content =

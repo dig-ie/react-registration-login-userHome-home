@@ -6,7 +6,6 @@ export const usuarios = [
     password: "123",
     imgUrl: "https://avatars.githubusercontent.com/u/101150281?v=4",
   },
-  ,
   {
     id: 1,
     name: "User 2",

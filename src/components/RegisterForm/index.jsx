@@ -10,9 +10,7 @@ import {
   ButtonContainer,
 } from "./styles";
 import { useForm } from "react-hook-form";
-import { usuarios, adicionarNovoUsuario } from "../../Mock/UserMock";
 import _isEqual from "lodash/isEqual";
-import omit from "lodash/omit";
 import { useNavigate, Link } from "react-router-dom";
 // import { LoginContext } from "../../contexts/LoginContext";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -31,16 +29,12 @@ const schema = yup
   .required();
 
 export const RegisterForm = ({
-  navigateTo,
   buttonText,
   ForgottPassWordTextP,
   CreateAccountTextP,
 }) => {
   // const { userLogged, toggleLogged } = useContext(LoginContext);
   // console.log("USER CONTEXT " + userLogged);
-  const navigate = useNavigate();
-  const [user, setUser] = useState({});
-  const [loginSuccess, setLoginSuccess] = useState(false);
   const {
     handleSubmit,
     control,
@@ -70,14 +64,12 @@ export const RegisterForm = ({
       const response = await api.post(`/users`, newUser);
       console.log("Novo usuário adicionado:", response.data);
       reset();
-      alert('Novo usuário adicionado.')
+      alert("Novo usuário adicionado.");
       return response.data;
     } catch (error) {
       console.error("Erro ao adicionar usuário:", error);
       throw error;
     }
-
-
   };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>

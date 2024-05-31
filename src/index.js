@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createGlobalStyle } from "styled-components";
-import { BrowserRouter } from "react-router-dom";
-import { LoginContext } from "./contexts/LoginContext";
+
 
 const GlobalStyle = createGlobalStyle`
   

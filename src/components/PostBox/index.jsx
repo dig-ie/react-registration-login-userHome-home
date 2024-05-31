@@ -1,5 +1,4 @@
 import {
-  FeedText,
   PostContainer,
   PostImgContainer,
   PostStyledImg,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "../Button/index";
 import { Input } from "../Input/index";
 import {
@@ -10,12 +10,10 @@ import {
   ButtonContainer,
 } from "./styles";
 import { useForm } from "react-hook-form";
-import _isEqual from "lodash/isEqual";
 import { useNavigate, Link } from "react-router-dom";
 // import { LoginContext } from "../../contexts/LoginContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import ProfileIcon from "../../icons/Profile.png";
 import Email from "../../icons/Email.png";
 import Password from "../../icons/Password.png";
 import { api } from "../../services/api";

@@ -1,11 +1,11 @@
 import { InputContainer, Inputt, ImgDiv, Img } from "./styles";
-import { useController, useForm } from "react-hook-form";
+import { useController } from "react-hook-form";
 
 export const Input = ({ control, name, inputIcon, PlaceHolder, InputType }) => {
   const {
     field,
-    fieldState: { invalid, isTouched, isDirty },
-    formState: { touchedFields, dirtyFields },
+    //fieldState: { invalid, isTouched, isDirty },
+    //formState: { touchedFields, dirtyFields },
   } = useController({
     name,
     control,
