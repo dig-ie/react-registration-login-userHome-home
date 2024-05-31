@@ -27,6 +27,13 @@
       "email": "NEWUSERMAIL@GMAI..COM",
       "password": "123",
       "imgUrl": ""
+    },
+    {
+      "id": "ccae",
+      "name": "aa",
+      "email": "aa",
+      "password": "aa",
+      "imgUrl": ""
     }
   ],
   "posts": [
