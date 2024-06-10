@@ -4,6 +4,9 @@
 ### "Home", "Registration", "Login" and "User home":  
 These pages handle forms, validations, and routing, using libraries such as React Hook Form, YUP, React Router Dom, and Firebase integration (cloud). Visually styled with the Styled-Components library based on DIO's figma prototype.
 
+#DEPLOY
+https://react-registration-login-user-home-home.vercel.app/
+
 ## Functionalities
 - User registration
 - Login based on FIREBASE AUTH
