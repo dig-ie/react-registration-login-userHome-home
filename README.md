@@ -2,18 +2,17 @@
 # Registration, Login and pages
 ## Pages:
 ### "Home", "Registration", "Login" and "User home":  
-These pages handle forms, validations, and routing, using libraries such as React Hook Form, YUP, React Router Dom, and Json Server. Visually styled with the Styled-Components library based on DIO's figma prototype.
+These pages handle forms, validations, and routing, using libraries such as React Hook Form, YUP, React Router Dom, and Firebase integration (cloud). Visually styled with the Styled-Components library based on DIO's figma prototype.
 
 ## Functionalities
 - User registration
-- Login based on JSON from the API that i simulated with the json-server library
+- Login based on FIREBASE AUTH
 - Navigation and routes made with the react-router-dom library
 - Validation of fields with YUP library:
 
  ![image](https://github.com/dig-ie/trilha-react-cadastro-login-userHome/assets/101150281/76f990ba-77ab-4c09-bebe-8abcdbb32bda)
 
-## Demo - Registering new user + Logging in
-![ReactApp-GoogleChrome-14March20241-ezgif com-video-to-gif-converter](https://github.com/dig-ie/trilha-react-cadastro-login-userHome/assets/101150281/d88396ab-f830-4760-beed-806fc4df6878)
+![usuário adicionado](https://github.com/dig-ie/react-registration-login-userHome-home/assets/101150281/8a9d6aff-8e72-4fa8-9454-46002579c027)
 
 ## Learnings
 - **Forms in Practice with React Hook Form**
@@ -21,8 +20,7 @@ These pages handle forms, validations, and routing, using libraries such as Reac
 - **Schema Validation Using Yup**
   - Implementing Yup for schema validation of form inputs
 - **User Registration and Login**
-  - Registration (POST) using the Json Server library API
-  - User login (GET) with the Json Server library fake API
+  - Integation with FIREBASE AUTH (cloud)
 - **Navigation Between Pages**
   - Using React Router Dom for page navigation
 - **Componentization and Use/Reuse of Elements with React**
@@ -34,9 +32,6 @@ These pages handle forms, validations, and routing, using libraries such as Reac
 ### With the archives downloaded or repo cloned, run the following comands in the terminal, in the root folder path
 #### Install the dependencies
 `yarn`
-#### Initialize the json-server API
-`yarn api`
 #### Run
 `yarn start`
 
-### Now you can register a new user, log in and use the project through the browser.
