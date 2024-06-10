@@ -1,4 +1,4 @@
-export const usuarios = [
+export const users = [
   {
     id: 0,
     name: "Diêgo",
@@ -33,5 +33,5 @@ export const usuarios = [
 ];
 
 export function adicionarNovoUsuario(novoUsuario) {
-  usuarios.push(novoUsuario);
+  users.push(novoUsuario);
 }

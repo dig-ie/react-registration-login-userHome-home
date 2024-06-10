@@ -12,16 +12,19 @@ export const ButtonOutlined = styled.span`
   display: flex;
   justify-content: center;
   align-items: center !important;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 export const Buttonn = styled.button`
-  cursor: pointer;
-
   min-width: 100px;
   min-height: 13px;
   width: 100%;
   height: auto;
   min-height: 27px;
-
+  &:hover {
+    cursor: pointer;
+  }
   background-color: #e4105d;
   color: white;
   font-weight: 400;

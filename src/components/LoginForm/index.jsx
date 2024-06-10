@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "../Button/index";
 import { Input } from "../Input/index";
 import {
@@ -10,20 +10,18 @@ import {
   ButtonContainer,
 } from "./styles";
 import { useForm } from "react-hook-form";
-import _isEqual from "lodash/isEqual";
 import { useNavigate, Link } from "react-router-dom";
-// import { LoginContext } from "../../contexts/LoginContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import ProfileIcon from "../../icons/Profile.png";
 import Email from "../../icons/Email.png";
 import Password from "../../icons/Password.png";
-import { api } from "../../services/api";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { authInstance } from "../../firebase";
 
 const schema = yup
   .object({
-    email: yup.string().required(),
-    password: yup.string().required(),
+    email: yup.string().email("Email inválido").required("O email é obrigatório"),
+    password: yup.string().required("A senha é obrigatória"),
   })
   .required();
 
@@ -34,8 +32,6 @@ export const LoginForm = ({
   ForgottPassWordTextP,
   CreateAccountTextP,
 }) => {
-  // const { userLogged, toggleLogged } = useContext(LoginContext);
-  // console.log("USER CONTEXT " + userLogged);
   const navigate = useNavigate();
   const {
     handleSubmit,
@@ -50,18 +46,15 @@ export const LoginForm = ({
     mode: "onChange",
   });
 
-  //ONSUBMIT FUNCTION SEARCHING ON THE JSON API IF THERE'S A USER THAT MATCHES THE FORM SUBMIT
   const onSubmit = async (formData) => {
+    const { email, password } = formData;
+
     try {
-      const { data } = await api.get(
-        `users?email=${formData.email}&password=${formData.password}`
-      );
-      console.log("api data:", data);
-      if (data.length >= 1) {
-        navigate(navigateTo);
-      }
-    } catch {
-      alert("Erroo");
+      await signInWithEmailAndPassword(authInstance, email, password);
+      navigate(navigateTo);
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      alert("Erro ao fazer login. Verifique suas credenciais.");
     }
   };
 
@@ -78,7 +71,7 @@ export const LoginForm = ({
       <Input
         InputType={"password"}
         inputIcon={Password}
-        PlaceHolder={"Password"}
+        PlaceHolder={"Senha"}
         control={control}
         name="password"
         rules={{ required: true }}

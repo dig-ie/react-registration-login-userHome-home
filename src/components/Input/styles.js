@@ -19,7 +19,7 @@ export const Inputt = styled.input`
   background-color: transparent;
   padding-left: 1.25rem;
   outline: none;
-  color: red;
+  color: white;
   font-size: 14px;
 `;
 

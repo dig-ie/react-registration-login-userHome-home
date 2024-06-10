@@ -9,24 +9,31 @@ import {
   CreateAccountText,
   ButtonContainer,
 } from "./styles";
+import { authInstance } from "../../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useForm } from "react-hook-form";
-import { usuarios, adicionarNovoUsuario } from "../../Mock/UserMock";
-import _isEqual from "lodash/isEqual";
-import omit from "lodash/omit";
 import { useNavigate, Link } from "react-router-dom";
-// import { LoginContext } from "../../contexts/LoginContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import ProfileIcon from "../../icons/Profile.png";
 import Email from "../../icons/Email.png";
 import Password from "../../icons/Password.png";
-import { api } from "../../services/api";
+
 const schema = yup
   .object({
-    name: yup.string().required(),
-    email: yup.string().required(),
-    password: yup.string().required(),
-    password1: yup.string().required().matches(yup.object.password),
+    name: yup.string().required("O nome é obrigatório"),
+    email: yup
+      .string()
+      .email("Email inválido")
+      .required("O email é obrigatório"),
+    password: yup
+      .string()
+      .min(6, "A senha deve ter pelo menos 6 caracteres")
+      .required("A senha é obrigatória"),
+    password1: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "As senhas não coincidem")
+      .required("A confirmação de senha é obrigatória"),
   })
   .required();
 
@@ -36,11 +43,8 @@ export const RegisterForm = ({
   ForgottPassWordTextP,
   CreateAccountTextP,
 }) => {
-  // const { userLogged, toggleLogged } = useContext(LoginContext);
-  // console.log("USER CONTEXT " + userLogged);
-  const navigate = useNavigate();
-  const [user, setUser] = useState({});
-  const [loginSuccess, setLoginSuccess] = useState(false);
+  //const navigate = useNavigate();
+  const [firebaseError, setFireBaseError] = useState();
   const {
     handleSubmit,
     control,
@@ -57,28 +61,21 @@ export const RegisterForm = ({
     mode: "onChange",
   });
 
-  //ONSUBMIT -----------------------------------------------------------------------------------
   const onSubmit = async (data) => {
-    const newUser = {
-      name: `${data.name}`,
-      email: `${data.email}`,
-      password: `${data.password}`,
-      imgUrl: "",
-    };
-    //POSTING A NEW USER ON THE API JSON
+    const { name, email, password } = data;
+
     try {
-      const response = await api.post(`/users`, newUser);
-      console.log("Novo usuário adicionado:", response.data);
+      await createUserWithEmailAndPassword(authInstance, email, password);
       reset();
-      alert('Novo usuário adicionado.')
-      return response.data;
+      alert("Novo usuário adicionado.");
+      // Redirecione o usuário ou faça algo após o cadastro
     } catch (error) {
-      console.error("Erro ao adicionar usuário:", error);
-      throw error;
+      console.error("Erro ao cadastrar:", error);
+      setFireBaseError(error);
+      // Exiba uma mensagem de erro para o usuário
     }
-
-
   };
+
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Input
@@ -100,15 +97,16 @@ export const RegisterForm = ({
       <Input
         InputType={"password"}
         inputIcon={Password}
-        PlaceHolder={"Password"}
+        PlaceHolder={"Senha"}
         control={control}
         name="password"
         rules={{ required: true }}
       />
+      <ErrorText>{errors.password?.message}</ErrorText>
       <Input
         InputType={"password"}
         inputIcon={Password}
-        PlaceHolder={"Password"}
+        PlaceHolder={"Confirmar Senha"}
         control={control}
         name="password1"
         rules={{ required: true }}
