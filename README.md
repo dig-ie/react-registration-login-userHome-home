@@ -12,7 +12,11 @@ These pages handle forms, validations, and routing, using libraries such as Reac
 
  ![image](https://github.com/dig-ie/trilha-react-cadastro-login-userHome/assets/101150281/76f990ba-77ab-4c09-bebe-8abcdbb32bda)
 
+## Adding user
 ![usuário adicionado](https://github.com/dig-ie/react-registration-login-userHome-home/assets/101150281/8a9d6aff-8e72-4fa8-9454-46002579c027)
+
+## After Login:
+![image](https://github.com/dig-ie/react-registration-login-userHome-home/assets/101150281/c2fa4f95-8ef6-42ea-b2b5-bf66f02935bf)
 
 ## Learnings
 - **Forms in Practice with React Hook Form**
